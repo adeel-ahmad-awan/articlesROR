@@ -33,7 +33,6 @@ class ArticlesController < ApplicationController
   end
 
   def show
-
   end
 
   def index
@@ -53,7 +52,7 @@ class ArticlesController < ApplicationController
     end
 
     def article_params
-      params.require(:article).permit(:title, :description)
+      params.require(:article).permit(:title, :description, catagory_ids: [])
     end
 
     def require_same_user

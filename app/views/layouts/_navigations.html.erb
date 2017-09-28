@@ -42,6 +42,29 @@
           </li>
         <% end %>
 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown"
+              role="button"
+              aria-haspopup="true"
+              aria-expanded="false">
+                catagories
+              <span class="caret">
+              </span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "all catagories", catagories_path %></li>
+            <% Catagory.all.each do |cat| %>
+              <li><%= link_to "#{cat.name}", catagory_path(cat) %></li>
+            <% end %>
+
+            <% if logged_in? and current_user.admin? %>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to "Add new Catagory", new_catagory_path %></li>
+            <% end %>
+          </ul>
+        </li>
+
       </ul>
       <form class="navbar-form navbar-left">
         <div class="form-group">
